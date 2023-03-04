@@ -4,10 +4,10 @@ Fixed::Fixed() {
 	this->_fixedPointValue = 0;
 }
 
-Fixed::Fixed( const int value ): _fixedPointValue(value << this->_fractionalBits) {
+Fixed::Fixed( const int value ): _fixedPointValue( value << this->_fractionalBits ) {
 }
 
-Fixed::Fixed( const float value ): _fixedPointValue(roundf(value * (1 << this->_fractionalBits))) {
+Fixed::Fixed( const float value ): _fixedPointValue( roundf( value * ( 1 << this->_fractionalBits ) ) ) {
 }
 
 Fixed::Fixed( const Fixed &copy ) {

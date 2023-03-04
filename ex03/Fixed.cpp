@@ -4,10 +4,10 @@ Fixed::Fixed() {
 	this->_fixedPointValue = 0;
 }
 
-Fixed::Fixed( const int value ): _fixedPointValue(value << this->_fractionalBits) {
+Fixed::Fixed( const int value ): _fixedPointValue(value << this->_fractionalBits ) {
 }
 
-Fixed::Fixed( const float value ): _fixedPointValue(roundf(value * (1 << this->_fractionalBits))) {
+Fixed::Fixed( const float value ): _fixedPointValue( roundf( value * ( 1 << this->_fractionalBits ) ) ) {
 }
 
 Fixed::Fixed( const Fixed &copy ) {
@@ -23,19 +23,19 @@ Fixed &Fixed::operator=( const Fixed &copy ) {
 }
 
 Fixed Fixed::operator+( const Fixed &fixed ) const {
-	return Fixed(this->toFloat() + fixed.toFloat());
+	return Fixed( this->toFloat() + fixed.toFloat() );
 }
 
 Fixed Fixed::operator-( const Fixed &fixed ) const {
-	return Fixed(this->toFloat() - fixed.toFloat());
+	return Fixed( this->toFloat() - fixed.toFloat() );
 }
 
 Fixed Fixed::operator*( const Fixed &fixed ) const {
-	return Fixed(this->toFloat() * fixed.toFloat());
+	return Fixed( this->toFloat() * fixed.toFloat() );
 }
 
 Fixed Fixed::operator/( const Fixed &fixed ) const {
-	return Fixed(this->toFloat() / fixed.toFloat());
+	return Fixed( this->toFloat() / fixed.toFloat() );
 }
 
 Fixed &Fixed::operator++() {
@@ -44,7 +44,7 @@ Fixed &Fixed::operator++() {
 }
 
 Fixed Fixed::operator++( int ) {
-	Fixed copy(*this);
+	Fixed copy( *this );
 	this->_fixedPointValue++;
 	return copy;
 }
@@ -55,7 +55,7 @@ Fixed &Fixed::operator--() {
 }
 
 Fixed Fixed::operator--( int ) {
-	Fixed copy(*this);
+	Fixed copy( *this );
 	this->_fixedPointValue--;
 	return copy;
 }
@@ -109,7 +109,7 @@ void Fixed::setRawBits( int const raw ) {
 }
 
 float Fixed::toFloat( void ) const {
-	return (float)this->_fixedPointValue / (1 << this->_fractionalBits);
+	return (float)this->_fixedPointValue / ( 1 << this->_fractionalBits );
 }
 
 int Fixed::toInt( void ) const {
